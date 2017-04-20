@@ -12,4 +12,4 @@ Download the MongoDB database from the https://www.mongodb.com and install it. N
 
 <h2>Start MongoDB server</h2>
 
-Now open the Command prompt and type “Mongod” and press enter.
+Open the Command prompt and type “Mongod” and press enter.
