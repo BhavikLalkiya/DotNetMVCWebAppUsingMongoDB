@@ -29,14 +29,14 @@ namespace DotNetMVCWebAppUsingMongoDB.API
         [HttpPost]
         public HttpResponseMessage Register(RegisterModel objData)
         {
-            AccountServices.RegisterUsers(objData.Name, objData.Email);
+            AccountServices.RegisterUsers(objData.Name, objData.Email, objData.Password);
             return Request.CreateResponse(HttpStatusCode.OK, new { Data = objData.Name });
         }
 
         [HttpPost]
         public HttpResponseMessage Login(LoginModel objLogin)
         {
-            var user = AccountServices.LoginUsers(objLogin.Email).Result; //blogContext.Users.Find(x => x.Email == model.Email).SingleOrDefaultAsync();
+            var user = AccountServices.LoginUsers(objLogin.Email, objLogin.Password).Result; //blogContext.Users.Find(x => x.Email == model.Email).SingleOrDefaultAsync();
             if (user == null)
             {
                 throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.Unauthorized));

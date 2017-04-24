@@ -32,10 +32,10 @@ namespace DotNetMVCWebAppUsingMongoDB.Controllers
             }
 
          
-            var user = await AccountServices.LoginUsers(model.Email);
+            var user = await AccountServices.LoginUsers(model.Email, model.Password);
             if (user == null)
             {
-                ModelState.AddModelError("Email", "Email address has not been registered.");
+                ModelState.AddModelError("", "Email address and Password do not matched or Email address has not been registered.");
                 return View(model);
             }
 
@@ -79,7 +79,7 @@ namespace DotNetMVCWebAppUsingMongoDB.Controllers
                 return View(model);
             }
 
-            AccountServices.RegisterUsers(model.Name, model.Email);
+            AccountServices.RegisterUsers(model.Name, model.Email, model.Password);
             
             return RedirectToAction("Index", "Home");
         }
