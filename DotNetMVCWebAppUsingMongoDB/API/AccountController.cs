@@ -43,7 +43,7 @@ namespace DotNetMVCWebAppUsingMongoDB.API
                 //return Request.CreateResponse(HttpStatusCode.Unauthorized, new { message = "Email address has not been registered.", Status = HttpStatusCode.Unauthorized });
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, new { token = user.Id, Status = HttpStatusCode.OK });
+            return Request.CreateResponse(HttpStatusCode.OK, new { token = user.Id, name=user.Name, Status = HttpStatusCode.OK });
         }
 
     }
